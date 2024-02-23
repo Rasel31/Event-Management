@@ -1,0 +1,30 @@
+Collecting xhtml2pdf
+  Downloading https://files.pythonhosted.org/packages/a8/08/d005dc84006cb0a2fb39841f63f1df1f651321c600b9733e2ee095f0966e/xhtml2pdf-0.2.2.tar.gz (97kB)
+Collecting html5lib>=1.0 (from xhtml2pdf)
+  Downloading https://files.pythonhosted.org/packages/a5/62/bbd2be0e7943ec8504b517e62bab011b4946e1258842bc159e5dfde15b96/html5lib-1.0.1-py2.py3-none-any.whl (117kB)
+Collecting httplib2 (from xhtml2pdf)
+  Downloading https://files.pythonhosted.org/packages/fd/ce/aa4a385e3e9fd351737fd2b07edaa56e7a730448465aceda6b35086a0d9b/httplib2-0.11.3.tar.gz (215kB)
+Collecting pyPdf2 (from xhtml2pdf)
+  Downloading https://files.pythonhosted.org/packages/b4/01/68fcc0d43daf4c6bdbc6b33cc3f77bda531c86b174cac56ef0ffdb96faab/PyPDF2-1.26.0.tar.gz (77kB)
+Requirement already satisfied: Pillow in f:\django\envoirnments\sec_env\lib\site-packages (from xhtml2pdf) (5.1.0)
+Collecting reportlab>=3.0 (from xhtml2pdf)
+  Downloading https://files.pythonhosted.org/packages/65/54/54058a77bf4dea9fb46c302fbd03f91e61a5b03c41dd0384d37539431e4a/reportlab-3.4.0-cp36-cp36m-win32.whl (2.1MB)
+Collecting six (from xhtml2pdf)
+  Downloading https://files.pythonhosted.org/packages/67/4b/141a581104b1f6397bfa78ac9d43d8ad29a7ca43ea90a2d863fe3056e86a/six-1.11.0-py2.py3-none-any.whl
+Collecting webencodings (from html5lib>=1.0->xhtml2pdf)
+  Downloading https://files.pythonhosted.org/packages/f4/24/2a3e3df732393fed8b3ebf2ec078f05546de641fe1b667ee316ec1dcf3b7/webencodings-0.5.1-py2.py3-none-any.whl
+Requirement already satisfied: setuptools>=2.2 in f:\django\envoirnments\sec_env\lib\site-packages (from reportlab>=3.0->xhtml2pdf) (39.2.0)
+Requirement already satisfied: pip>=1.4.1 in f:\django\envoirnments\sec_env\lib\site-packages (from reportlab>=3.0->xhtml2pdf) (10.0.1)
+Building wheels for collected packages: xhtml2pdf, httplib2, pyPdf2
+  Running setup.py bdist_wheel for xhtml2pdf: started
+  Running setup.py bdist_wheel for xhtml2pdf: finished with status 'done'
+  Stored in directory: C:\Users\DCL\AppData\Local\pip\Cache\wheels\37\e9\d9\8ef244092a2b3b004ab197f5c707973c8ce2082fa75fb6ce6a
+  Running setup.py bdist_wheel for httplib2: started
+  Running setup.py bdist_wheel for httplib2: finished with status 'done'
+  Stored in directory: C:\Users\DCL\AppData\Local\pip\Cache\wheels\1b\9c\9e\1f6fdb21dbb1fe6a99101d697f12cb8c1fa96c1587df69adba
+  Running setup.py bdist_wheel for pyPdf2: started
+  Running setup.py bdist_wheel for pyPdf2: finished with status 'done'
+  Stored in directory: C:\Users\DCL\AppData\Local\pip\Cache\wheels\53\84\19\35bc977c8bf5f0c23a8a011aa958acd4da4bbd7a229315c1b7
+Successfully built xhtml2pdf httplib2 pyPdf2
+Installing collected packages: six, webencodings, html5lib, httplib2, pyPdf2, reportlab, xhtml2pdf
+Successfully installed html5lib-1.0.1 httplib2-0.11.3 pyPdf2-1.26.0 reportlab-3.4.0 six-1.11.0 webencodings-0.5.1 xhtml2pdf-0.2.2

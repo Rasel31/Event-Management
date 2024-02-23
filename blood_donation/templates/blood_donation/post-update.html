@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Update Post | {{ block.super }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'swehome:home' %}"> Home</a></li>
+    <li class="breadcrumb-item">
+        <a href="{% url 'blood_donation:blood-home' %}">Blood Donation Post List</a>
+    </li>
+    <li class="breadcrumb-item"><a href="{% url 'blood_donation:post-detail' object.slug %}">{{ object.title }}</a></li>
+    <li class="breadcrumb-item active">Update</li>
+{% endblock %}
+
+{% block content %}
+
+    <form method="post" class="mb-4" novalidate>
+        {% csrf_token %}
+        {% include 'includes/form.html' with form=form %}
+        <button type="submit" class="btn btn-success btn-block">Post a reply</button>
+    </form>
+
+{% endblock %}

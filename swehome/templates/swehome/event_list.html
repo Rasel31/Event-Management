@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% load humanize %}
+
+{% block title %} Event List | {{ block.super }} {% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'swehome:home' %}"> Home</a></li>
+    <li class="breadcrumb-item active">Event List</li>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <a href="{% url 'swehome:archived-event-list' %}" class="button btn-outline-success">See the Archived Event</a>
+        </div>
+
+        <div class="row my-2">
+            {% for obj in object_list %}
+
+                {% if forloop.counter|divisibleby:4 %}
+                    <div class="col-md-12">
+                        <hr class="bg-success">
+                    </div>
+                {% endif %}
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{% url 'swehome:event-detail' obj.slug %}">{{ obj.name }}</a>
+                                <span class="badge badge-pill badge-info">{{ obj.category }}</span>
+                            </h5>
+                            <p class="card-text">Location: {{ obj.venue }}</p>
+                            <p class="card-text">Event Start: {{ obj.start }}</p>
+                            <p class="card-text">Event End: {{ obj.end }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Last updated {{ obj.update|naturaltime }}</small>
+                        </div>
+                    </div>
+
+                </div>
+
+                {% empty %}
+                    <p class="my-3" style="margin-left: 40%">No Events Added Yet.
+                        <a href="{% url 'swehome:event-create' %}" class="btn btn-info">Create One</a>
+                    </p>
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

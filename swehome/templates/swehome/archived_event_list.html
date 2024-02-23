@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block title %} Event List | {{ block.super }} {% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'swehome:home' %}"> Home</a></li>
+    <li class="breadcrumb-item active">Archived Event List</li>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="">
+                            <th>Event name</th>
+                            <th>Offer By</th>
+                            <th>Organize By</th>
+                            <th>Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for obj in object_list %}
+                        <tr>
+                            <td><a href="{% url 'swehome:event-detail' obj.slug %}">{{ obj.name }}</a></td>
+                            <td>{{ obj.offer_by }}</td>
+                            <td>{{ obj.by }}</td>
+                            <td>{{ obj.update|date:'M/y' }}</td>
+                        </tr>
+                        {% empty %}
+                            <p class="my-3" style="margin-left: 35%">No Event Created Yet.
+                                <a class="btn btn-success" href="{% url 'swehome:event-create' %}">Create Event</a>
+                            </p>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+
+        </div>
+    </div>
+{% endblock %}

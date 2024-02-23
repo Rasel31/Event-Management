@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% load humanize %}
+
+{% block title %} {{ object.name }} | {{ block.super }} {% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'swehome:home' %}"> Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'swehome:my-event-list' %}">Events</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'swehome:event-detail' slug=object.slug %}">{{ object.name }}</a></li>
+    <li class="breadcrumb-item active">Edit</li>
+{% endblock %}
+
+{% block content %}
+  <form enctype="multipart/form-data" method="post" class="mb-4" novalidate >
+
+    {% csrf_token %}
+    {% include 'includes/form.html' %}
+    <div class="row">
+        <div class="col-6">
+        <button type="submit" class="btn btn-success btn-block">Save changes</button>
+    </div>
+
+    <div class="col-6">
+        <a href="{% url 'swehome:event-detail' slug=object.slug %}" class="btn btn-outline-secondary btn-block" role="button">
+        Cancel
+    </a>
+
+    </div>
+    </div>
+
+
+  </form>
+{% endblock %}

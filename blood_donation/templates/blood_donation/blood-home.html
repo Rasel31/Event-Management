@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block title %} Blood Donate | {{ block.super }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'swehome:home' %}"> Home</a></li>
+    <li class="breadcrumb-item active">Blood Donation Post List</li>
+{% endblock %}
+
+{% block content %}
+
+    <h3 class="my-3" style="text-align: center">Blood Donation Post</h3>
+
+    <div class="row my-3">
+        {% for post in posts %}
+            {% if forloop.counter|divisibleby:4 %}
+                <div class="col-md-12">
+                    <hr class="bg-info">
+                </div>
+            {% endif %}
+            <div class="col-md-4 col-sm-4 col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            <a href="{% url 'blood_donation:post-detail' slug=post.slug %}">{{ post.title }}</a>
+                        </h3>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">By {{ post.by }} {{ post.update_at|naturaltime }}</small>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <hr class="my-3" style="border: 2px solid #4a95ff">
+{% endblock content %}

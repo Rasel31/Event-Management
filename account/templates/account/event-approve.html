@@ -1,0 +1,304 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block stylesheet %}
+
+    <style type="text/css">
+        body {
+            font-family: "Helvetica", "sans-serif";
+            color: black;
+        }
+        tr{
+            height: 30px;
+        }
+        th {
+            text-align: left;
+        }
+        .center{
+            text-align: center;
+        }
+        fieldset {
+            display: block;
+            margin-left: 2px;
+            margin-right: 2px;
+            padding: 0.35em 6em 0.625em;
+            border: 2px groove;
+        }
+    </style>
+{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'swehome:home' %}"> Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'account:approval-list' %}">Event Approval List</a> </li>
+    <li class="breadcrumb-item active">{{ object.name }}</li>
+{% endblock %}
+
+
+{% block content %}
+
+    <h1 class="center" style="font-size: 2.5em">
+        <img src="{% static 'img/daffodil-university-logo.jpg' %}" height="40px" width="40px" >
+        Daffodil International University
+    </h1>
+    <p class="lead center" style="font-size: 1.6em">102 Shukrabad, Mirpur Road, Dhanmondi, Dhaka-1207</p>
+    <H2 class="center" style="font-size: 2em">Event Planning Sheet</H2>
+
+    <div class="container">
+        <table border="1" cellpadding="1" cellspacing="0" style="margin: auto;">
+            <tr>
+                <th>Program Offered by</th>
+                <td>{{ object.offer_by }}</td>
+            </tr>
+            <tr>
+                <th>Person Responsible</th>
+                <td>{{ object.by }}</td>
+            </tr>
+            <tr>
+                <th>Designation & Mobile</th>
+                <td>{{ object.designation }} | {{ object.mobile }}</td>
+            </tr>
+            <tr>
+                <th>Program Name</th>
+                <td>{{ object.name }}</td>
+            </tr>
+            <tr>
+                <th>Date & Time</th>
+                <td>{{ object.start }}</td>
+            </tr>
+            <tr>
+                <th>Venue</th>
+                <td>{{ object.venue }}</td>
+            </tr>
+            <tr>
+                <th>Chief Guest</th>
+                <td>{{ object.chief }}</td>
+            </tr>
+            <tr style="width: 30px">
+                <th>How having this Chief Guest will benefit the objectives of the program</th>
+                <td>
+                    {{ object.objective }}
+                </td>
+            </tr>
+            <tr>
+                <th>Target Audience & Number</th>
+                <td>{{ object.target }} | {{ object.number }}</td>
+            </tr>
+            <tr>
+                <th>Outcome Of the Event</th>
+                <td>
+                    {{ object.outcome }}
+                </td>
+            </tr>
+        </table>
+
+        <p class="lead center" style="font-size: 1.2em">Task Distribution: Each of the following tasks has been discussed and arranged:-</p>
+
+        <table border="1" cellpadding="1" cellspacing="0" style="margin: auto">
+            <thead>
+                <tr>
+                    <th>SL</th>
+                    <th>Task</th>
+                    <th>Particular</th>
+                    <th>Responsible Person(s) with Mobile Number</th>
+                    <th>Signature</th>
+                </tr>
+            </thead>
+            <tr>
+                <th>01</th>
+                <th>Program Approval</th>
+                <td><input class="form-check-inline" type="checkbox"> Yes <input class="form-check-inline" type="checkbox"> No</td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>02</th>
+                <th>Venue Booking</th>
+                <td><input class="form-check-inline" type="checkbox"> Yes <input class="form-check-inline" type="checkbox"> No</td>
+                <td>{% if object.approval %}{{ object.booking }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>03</th>
+                <th>Guest Reception</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>04</th>
+                <th>Car Parking</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>05</th>
+                <th>IT Support</th>
+                <td>List</td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>06</th>
+                <th>Banner Text & Size</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>07</th>
+                <th>Security</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>08</th>
+                <th>Public Relation</th>
+                <td>Photography, Media</td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>09</th>
+                <th>Press Release  & website Text</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>10</th>
+                <th>Video Recording</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>11</th>
+                <th>Campus TV</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>12</th>
+                <th>Venue Decoration</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>13</th>
+                <th>Audience Confirmation</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>14</th>
+                <th>Room Decoration</th>
+                <td>Banner & others</td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>15</th>
+                <th>Cleaning Supervision</th>
+                <td>Before & After</td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>16</th>
+                <th>Refreshment</th>
+                <td>with place</td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>17</th>
+                <th>Staff Support</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>18</th>
+                <th>Transport Booking</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>19</th>
+                <th>Extra Support From Outside</th>
+                <td>List</td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>20</th>
+                <th>Other Requirement's</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>21</th>
+                <th>Master of Ceremonies</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>22</th>
+                <th>Program Outline & Sequence Confirmed</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>23</th>
+                <th>Volunteers & Training</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>24</th>
+                <th>Budget Source</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>25</th>
+                <th>Departmental Contribution</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>26</th>
+                <th>Sponsor Contribution</th>
+                <td></td>
+                <td>{% if object.approval %}{{ object.approval }}{% else %}{% endif %}</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <hr>
+
+    <fieldset>
+        <legend>Approve Event:</legend>
+
+        <form class="my-3" action="" method="post" novalidate>{% csrf_token %}
+            {% include 'includes/form.html' with form=form %}
+
+            <button class="btn btn-outline-dark btn-block" type="submit">Save</button>
+        </form>
+    </fieldset>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Create Post | {{ block.super }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'swehome:home' %}"> Home</a></li>
+    <li class="breadcrumb-item active">Add Blood Donation Post</li>
+{% endblock %}
+
+{% block content %}
+    <form method="post">{% csrf_token %}
+        {% include 'includes/form.html' %}
+        <button type="submit" class="btn btn-info btn-block">Add</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load humanize %}
+
+{% block title %} My Blood Info | {{ block.super }} {% endblock %}
+
+{% block breadcrumb %}
+
+    <li class="breadcrumb-item">
+        <a href="{% url 'swehome:home' %}"> Home</a>
+    </li>
+    <li class="breadcrumb-item active">
+        My Blood Info
+    </li>
+
+{% endblock breadcrumb %}
+
+{% block content %}
+        <div class="col-md-12 col-sm-12 col-lg-12">
+            <div class="card" style="text-align: center">
+                <div class="card-body" >
+                    {% for i in object %}
+                        <p class="card-text">Blood Group {{ i.group }}</p>
+                        <P class="card-text">Last Donated {{ i.last_donate|naturaltime }}</P>
+                        <a href="{% url 'blood_donation:info-update' slug=i.slug %}" class="btn btn-info">Update</a>
+                    {% empty %}
+                        <a href="{% url 'blood_donation:add-blood-info' %}" class="btn btn-info">Add Blood Information</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}
